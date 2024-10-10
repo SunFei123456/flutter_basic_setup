@@ -1,16 +1,28 @@
-# study_statelesswidget
+# Flutter 基础应用
 
-A new Flutter project.
+这是一个简单的 Flutter 应用程序，演示了如何使用 BottomNavigationBar 和 Drawer 进行基本的页面导航。
 
-## Getting Started
+## 功能
+- 首页
+- 搜索页
+- 添加项页
+- 收藏页
 
-This project is a starting point for a Flutter application.
+## 安装
 
-A few resources to get you started if this is your first Flutter project:
+安装 Flutter 以及其依赖项，可以参考[Flutter 安装指南](https://flutter.dev/docs/get-started/install)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter pub get
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 运行
+
+```bash
+flutter run
+```
+
+## 说明
+
+- [Flutter 基础应用](https://github.com/flutter/cheatsheets/blob/main/cheatsheets/flutter_basic.md)
+
