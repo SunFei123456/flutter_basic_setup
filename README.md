@@ -1,12 +1,26 @@
 # Flutter 基础应用
 
-这是一个简单的 Flutter 应用程序，演示了如何使用 BottomNavigationBar 和 Drawer 进行基本的页面导航。
+这是一个简单的 Flutter 应用程序，演示了如何使用 BottomNavigationBar 和 Drawer 进行基本的页面导航 以及搭建了一个简易DemoTodoList 页面, 快速学习上手Flutter开发。
 
-## 功能
+## 基本功能
 - 首页
-- 搜索页
+- todoList页面
 - 添加项页
 - 收藏页
+
+
+
+## 组件
+
+1. Drawer  抽屉
+2. Dialog  弹框
+3. TextField 文本输入框
+4. Column, Padding, Container, Row 等等布局widget
+5. bottomNavigationBar
+6. ElevatedButton
+7. floatingActionButton
+8. ListView.builde 
+9. ...
 
 ## 安装
 
@@ -22,7 +36,7 @@ flutter pub get
 flutter run
 ```
 
-## 说明
+## 页面展示
 
-- [Flutter 基础应用](https://github.com/flutter/cheatsheets/blob/main/cheatsheets/flutter_basic.md)
+<img src="assets/show.jpg" style="zoom:50%;" />
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:study_statelesswidget/pages/add.dart';
 import 'package:study_statelesswidget/pages/collect.dart';
-import 'package:study_statelesswidget/pages/home_page.dart';
-import 'package:study_statelesswidget/pages/search.dart';
+import 'package:study_statelesswidget/pages/home.dart';
+import 'package:study_statelesswidget/pages/todolist.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});

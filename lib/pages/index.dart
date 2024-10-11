@@ -40,9 +40,8 @@ class _FirstPageState extends State<FirstPage> {
         backgroundColor: Colors.purple[200],
       ),
       body: _pageList[_currentIndex], // 根据索引切换页面
-      // 封装后的 Drawer
       drawer: _buildDrawer(context),
-      bottomNavigationBar: _buildBottomAppBar(context),
+      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -64,13 +63,12 @@ class _FirstPageState extends State<FirstPage> {
               ),
             ),
           ),
-          // 使用封装的 ListTile
           _buildListTile(
             title: '首页',
             subtitle: '跳转到首页',
             icon: Icons.home,
             onTap: () {
-              Navigator.of(context).pop(); // 关闭 Drawer
+              Navigator.of(context).pop();
               changeIndex(0); // 切换到首页
             },
           ),
@@ -79,7 +77,7 @@ class _FirstPageState extends State<FirstPage> {
             subtitle: '跳转到收藏页',
             icon: Icons.favorite,
             onTap: () {
-              Navigator.of(context).pop(); // 关闭 Drawer
+              Navigator.of(context).pop();
               changeIndex(3); // 切换到收藏页
             },
           ),
@@ -99,75 +97,38 @@ class _FirstPageState extends State<FirstPage> {
       leading: Icon(icon, color: Colors.purple),
       title: Text(title),
       subtitle: Text(subtitle),
-      onTap: onTap, // 点击事件
+      onTap: onTap,
     );
   }
 
-  // 封装 BottomAppBar
-  Widget _buildBottomAppBar(BuildContext context) {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(), // 凹槽样式
-      notchMargin: 5.0, // 凹槽边距
-      padding: const EdgeInsets.fromLTRB(0, 6, 0, 6), // BottomAppBar内边距
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildIconWithText(
-            icon: Icons.home,
-            label: '首页',
-            onPressed: () {
-              changeIndex(0); // 切换到首页
-            },
-          ),
-          _buildIconWithText(
-            icon: Icons.search,
-            label: '搜索',
-            onPressed: () {
-              changeIndex(1); // 切换到搜索
-            },
-          ),
-          _buildIconWithText(
-            icon: Icons.add,
-            label: '添加',
-            onPressed: () {
-              changeIndex(2); // 切换到添加
-            },
-          ),
-          _buildIconWithText(
-            icon: Icons.favorite,
-            label: '收藏',
-            onPressed: () {
-              changeIndex(3); // 切换到收藏
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  // 封装图标与文字组合
-  Widget _buildIconWithText({
-    required IconData icon,
-    required String label,
-    required VoidCallback onPressed,
-  }) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            color: Colors.purple,
-          ),
-          const SizedBox(height: 4.0), // 图标与文字之间的间距
-          Text(
-            label,
-            style: const TextStyle(fontSize: 12.0, color: Colors.black),
-          ),
-        ],
-      ),
+  // 使用 BottomNavigationBar 替换自定义的 BottomAppBar
+  Widget _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      currentIndex: _currentIndex, // 当前选中的索引
+      selectedItemColor: Colors.purple, // 选中的颜色
+      unselectedItemColor: Colors.grey, // 未选中的颜色
+      onTap: (int index) {
+        changeIndex(index); // 点击后改变页面
+      },
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: '首页',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.today_outlined),
+          label: 'ToDoList',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+          label: '添加',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: '收藏',
+        ),
+      ],
     );
   }
 }
